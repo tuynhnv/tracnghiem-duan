@@ -1,0 +1,55 @@
+
+<nav class="navbar navbar-default">
+    <h3 style="padding-bottom: 20px; padding-left: 30px" class="nav nav-pills" *ngIf="!isLoggedIn">Hệ thống thi trắc nghiệm THPT</h3>
+    <div *ngIf="isLoggedIn">
+
+      <ul class="nav nav-pills navbar-right border-left" style="padding-right: 10px">
+        <li><a style="padding-left: 10px">{{afService.displayName}}</a></li>
+      </ul>
+
+      <ul class="nav nav-pills navbar-right " >
+        <li><a style="cursor: pointer;" (click)="logout()">Đăng xuất</a></li>
+      </ul>
+      
+    
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/']">Trang chủ</a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link active" [routerLink]="['/quiz']">Làm bài thi</a>
+      </li>-->
+      <li class="nav-item" *ngIf="afService.role=='admin'">
+        <a class="nav-link" [routerLink]="['/usermanagement']">Quản lý người dùng</a>
+      </li>
+
+      <li class="nav-item" *ngIf="afService.role=='admin'">
+        <a class="nav-link" [routerLink]="['/quizmanagement']">Quản lý bài thi</a>
+      </li>
+
+      <li class="nav-item" *ngIf="afService.role=='teacher'">
+        <a class="nav-link" [routerLink]="['/questionmanagement']">Quản lý câu hỏi</a>
+      </li>
+
+      <li class="nav-item" *ngIf="afService.role=='teacher'">
+        <a class="nav-link" [routerLink]="['/grademanagement']">Quản lý điểm</a>
+      </li>
+
+      <li class="nav-item" *ngIf="afService.role=='student'">
+        <a class="nav-link" [routerLink]="['/grade']">Xem điểm</a>
+      </li>
+      <li class="nav-item" *ngIf="afService.role=='student'">
+        <a class="nav-link" [routerLink]="['/addquestion']">Thêm câu hỏi</a>
+      </li>
+    </ul>
+    </div>
+      
+</nav>
+    
+  
+
+<div class="app-content">
+  <router-outlet></router-outlet>
+</div>
+

@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hệ thống thi trắc nghiệm THPT</title>
+  <base href="/">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="./images/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="./images/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="./manifest.json">
+  <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700">
+  <!--<link rel="stylesheet" href="./css/styles.css">-->
+
+   <!--Polyfill(s) for older browsers -->
+    <!--<script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>-->
+    
+      <!--<script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    </script>
+    <script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+    <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script> 
+    <script src="https://cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>         -->
+
+    <!--<script type="text/javascript">
+  If serviceWorker supports, then register it.
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register('./serviceWorker.js', { scope: "./" }) //setting scope of sw
+    .then(function (registration) {
+      console.info('Service worker is registered!');
+    })
+    .catch(function (error) {
+      console.error('Service worker failed ', error);
+    });
+  }
+  
+  </script>-->
+
+</head>
+<body>
+  <!--<textarea cols="10" id="editor1" name="editor1" rows="10" >&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;
+	</textarea>
+
+	<script>
+		CKEDITOR.replace( 'editor1', {
+			extraPlugins: 'mathjax',
+			mathJaxLib: 'http://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS_HTML',
+			height: 320
+		} );
+
+		if ( CKEDITOR.env.ie && CKEDITOR.env.version == 8 ) {
+			document.getElementById( 'ie8-warning' ).className = 'tip alert';
+		}
+	</script>
+  <h1>Outside Angular one half = $\frac 12$</h1>-->
+  <app-root>
+    <img style="margin-left: 40vw; margin-top: 20vh;" src="https://progblog.io/img/logo-green.png">
+  </app-root>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+        console.log('Service Worker registered');
+      }).catch(function(err) {
+        console.log('Service Worker registration failed: ', err);
+      });
+    }
+  </script>
+  <!--<button class="js-push-button" >
+  Enable Push Messages
+  </button>-->
+
+  <!--<div class="fab fab__push">
+        <div class="fab__ripple"></div>
+        <img class="fab__image" src="./images/push-off.png" alt="Push Notification" />
+      </div>-->
+      
+      <!-- Toast msg's  -->
+      <!--<div class="toast__container"></div>
+    </div>
+  </div>-->
+
+  <!-- JS Files  -->
+  
+  <!--<script>
+    var config = {
+    apiKey: "AIzaSyDpcHqGHomwkl2oNAIEFAaDr58jqW40pJg",
+    authDomain: "push-example-921a8.firebaseapp.com",
+    databaseURL: "https://push-example-921a8.firebaseio.com",
+    storageBucket: "push-example-921a8.appspot.com",
+    messagingSenderId: "415083462802"
+};
+firebase.initializeApp(config);
+
+const messaging = firebase.messaging();
+messaging.requestPermission()
+.then(function() {
+    console.log('Have permisstion');
+    return messaging.getToken();
+})
+// .then(function(token){
+//   console.log(token);
+// })
+.catch(function(err) {
+    console.log('Error Occured.', err)
+})
+
+messaging.onMessage(function(payload){
+    console.log('onMessage: ', payload);
+})
+  </script>-->
+  <!--<script src="./js/app.js"></script>-->
+  
+  <!--<script src="./js/push.js"></script>
+  <script src="./js/toast.js"></script>-->
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+    <div class="container">  
+      <div class="row" >
+          <div class="list-group" *ngIf="mode=='listquiz'" >
+                <a class="list-group-item active">
+                  Quản lý các đề thi THPT Quốc gia  
+                </a>
+                <a style="cursor: pointer" class="list-group-item" *ngFor="let quiz of quizs | async" (click)="namequiz=quiz.name" (click)="listquestion()" >{{quiz.name}}</a>              
+          </div>
+
+          <div class="container" *ngIf="mode=='listquestion'">
+              <h3>Bảng quản lý các câu hỏi trong đề thi</h3>
+              <hr>
+              <!--<p>Inspired by this <a href="http://bootsnipp.com/snippets/featured/panel-tables-with-filter">snippet</a></p>-->
+              <div class="row">
+                  <div class="panel panel-primary filterable">
+                      <div class="panel-heading">
+                          <h3 class="panel-title">Đề thi {{namequiz}}</h3>
+                          <div class="pull-right">
+                              <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Lọc</button>
+                          </div>
+                      </div>
+                      <button style="margin-left: 20px; margin-top: 10px" class="btn btn-primary" [routerLink]="['/addquestion']" ><strong>+ Thêm câu hỏi</strong></button>
+                      <table class="table">
+                          <thead>
+                              <tr class="filters">
+                                  <th><input type="text" class="form-control" placeholder="Số thứ tự" ></th>
+                                  <th><input type="text" class="form-control" placeholder="Tên câu hỏi" ></th>
+                                  <th><input type="text" class="form-control" placeholder="Đáp án A" ></th>
+                                  <th><input type="text" class="form-control" placeholder="Đáp án B" ></th>
+                                  <th><input type="text" class="form-control" placeholder="Đáp án C" ></th>
+                                  <th><input type="text" class="form-control" placeholder="Đáp án D" ></th>
+                                  <th><input type="text" class="form-control" placeholder="Đáp án đúng" ></th>
+                                  <th><input type="text" class="form-control" placeholder="Hành động" ></th>
+                                  
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let question of questions | async | paginate: {itemsPerPage: 10, currentPage:page}; let index = index">
+                                  <td style="text-align: center">{{index+1}}</td>
+                                  <td style="padding-left: 1px">{{question.name}}</td>
+                                  <td style="padding-left: 1px">{{question.A}}</td>
+                                  <td style="padding-left: 1px">{{question.B}}</td>
+                                  <td style="padding-left: 1px">{{question.C}}</td>
+                                  <td style="padding-left: 1px">{{question.D}}</td>
+                                  <td style="padding-left: 1px">{{question.key}}</td>
+                                  <td style="text-align: center"><a>Xóa</a> <a>Sửa</a></td>
+                                  
+                                  
+                              </tr>
+                              
+                          </tbody>
+                          
+                      </table>
+                      <pagination-controls (pageChange)="page = $event"
+                                                  style="text-align: center"
+                                                  directionLinks="true"
+                                                  autoHide="true"
+                                                  previousLabel="Trang trước"
+                                                  nextLabel="Trang tiếp"
+                                                  screenReaderPaginationLabel="Pagination"
+                                                  screenReaderPageLabel="page"
+                                                  screenReaderCurrentLabel="You're on page">
+                                          </pagination-controls> 
+                  </div>
+              </div>
+          </div>
+
+
+      </div>
+    </div>

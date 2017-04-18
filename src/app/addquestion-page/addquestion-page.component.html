@@ -1,0 +1,72 @@
+<div class="container">
+        <div class="col-md-4">
+
+            
+            <form class="form-horizontal"  id="myform" (submit)="addquestion($event, dethi.value, name.value, A.value, B.value, C.value, D.value, key.value)">
+
+                <div class="alert alert-success" *ngIf="alert==true">
+                <strong>Bạn đã thêm câu hỏi thành công!</strong>
+                </div>
+
+                    <div class="form-group">
+                       <label for="course">Câu hỏi thuộc đề thi:</label>
+                       <select #dethi type="text" class="form-control" id="course" name="course" placeholder="Course">
+                           <option *ngFor="let quiz of quizs | async" [ngValue]="quiz.name" >{{quiz.name}}</option>
+                       </select>                      
+                    </div>
+                    
+                    <div class="form-group">
+                         <label for="csetitle">Nội dung câu hỏi</label>
+                         <textarea #name type="text" class="form-control" id="question" name="question" placeholder="Điền nội dung câu hỏi tại đây" cols="40" rows="5" style="resize:vertical;" required></textarea>
+                    </div>
+                    
+                    <!--<textarea cols="10" id="editor1" name="editor1" rows="10" >&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;
+	</textarea>
+                    <textarea
+                            #editorArea
+                            ngDefaultControl
+                            spellcheck="false"
+                            class="editor"
+                            
+                    ></textarea>
+
+                    <br/><br/>
+
+                    <div class="result" #result>c {{ editorArea.value }}</div>
+                    -->
+                    <!--<h1 class="math-element" id="equation" [mathJax]="equationTexString">
+</h1>-->
+
+                    <div class="form-group">
+                       <label for="title">Lựa chọn A:</label>
+                       <input #A type="text" class="form-control" id="question" name="question" placeholder="" cols="40" rows="5" style="resize:vertical;" required>
+                    </div>
+
+                    <div class="form-group">
+                       <label for="title">Lựa chọn B:</label>
+                       <input #B type="text" class="form-control" id="question" name="question" placeholder="" cols="40" rows="5" style="resize:vertical;" required>
+                    </div>
+
+                    <div class="form-group">
+                       <label for="title">Lựa chọn C:</label>
+                       <input #C type="text" class="form-control" id="question" name="question" placeholder="" cols="40" rows="5" style="resize:vertical;" required>
+                    </div>
+
+                    <div class="form-group">
+                       <label for="title">Lựa chọn D:</label>
+                       <input #D type="text" class="form-control" id="question" name="question" placeholder="" cols="40" rows="5" style="resize:vertical;" required>
+                    </div>
+
+                    <div class="form-group">
+                       <label for="title">Đáp án đúng:</label>
+                       <input #key type="text" class="form-control" id="question" name="question" placeholder="" cols="40" rows="5" style="resize:vertical;" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button id="add-more" name="add-more" class="btn btn-primary" type="submit">Thêm câu hỏi</button>
+                        <input class="btn btn-primary" type="reset" (click)="reset()" value="Thiết lập lại" />
+                    </div>
+                    
+            </form>
+        </div>
+    </div>

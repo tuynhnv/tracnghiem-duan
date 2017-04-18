@@ -1,0 +1,23 @@
+<div *ngIf="error" class="alert alert-warning" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  {{error}}
+</div>
+
+<div class="modal-dialog">
+  <div class="registermodal-container">
+    <h1 class="text-primary">ĐĂNG KÝ</h1><br>
+
+    <form class="form-signin" style="margin-bottom: 20px " (submit)="register($event, name.value, email.value, password.value)">
+      <label for="name" class="sr-only">Name</label>
+      <input #name type="text" id="name" class="form-control" placeholder="Tên" required="">
+      <label style="margin-top:10px;" for="email" class="sr-only">Email address</label>
+      <input #email style="margin-top:10px;" type="email" id="email" class="form-control" placeholder="Địa chỉ email" required="" autofocus="">
+      <label style="margin-top:10px;" for="inputPassword" class="sr-only">Password</label>
+      <input #password  style="margin-top:10px;" type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required="">
+      <br>
+      <button class="btn btn-md btn-primary btn-block" type="submit">Đăng ký</button>
+    </form>
+    <a style="margin-left:125px" [routerLink]="['/login']">Đăng nhập</a>
+  </div>
+</div>
