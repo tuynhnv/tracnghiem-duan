@@ -1,6 +1,6 @@
 {
-  "name": "Progressive Web App",
-  "short_name": "PWA",
+  "name": "Hệ thống thi trắc nghiệm THPT",
+  "short_name": "Trắc nghiệm",
   "description": "Demo for progressive web app with push notifications, background sync etc.",
   "start_url": "./index.html?utm=homescreen",
   "display": "standalone",
@@ -18,11 +18,10 @@
       "sizes": "512x512"
   }],
   "author": {
-    "name": "Gokulakrishnan Kalaikovan",
-    "website": "https://gokulkrishh.github.io",
-    "github": "https://github.com/gokulkrishh",
-    "source-repo": "https://github.com/gokulkrishh/demo-progressive-web-app"
+    "name": "Nguyen Tuynh",
+    "website": "https://thitracnghiemthpt.firebase.com",
+    "github": "https://github.com/tuynhnv"
   },
-  "gcm_sender_id": "415083462802",
+  "gcm_sender_id": "103953800507",
   "gcm_user_visible_only": true
 }
