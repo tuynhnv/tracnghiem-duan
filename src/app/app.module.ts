@@ -21,11 +21,17 @@ import { GradeManagementComponent } from './grade-management/grade-management.co
 import { QuestionManagementComponent } from './question-management/question-management.component';
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyDpcHqGHomwkl2oNAIEFAaDr58jqW40pJg",
-    authDomain: "push-example-921a8.firebaseapp.com",
-    databaseURL: "https://push-example-921a8.firebaseio.com",
-    storageBucket: "push-example-921a8.appspot.com",
-    messagingSenderId: "415083462802"
+    apiKey: "AIzaSyABFBp8LGhIwp3TkkT0xo7LqqgCMpWf2QY",
+    authDomain: "trac-nghiem-1b9ea.firebaseapp.com",
+    databaseURL: "https://trac-nghiem-1b9ea.firebaseio.com",
+    projectId: "trac-nghiem-1b9ea",
+    storageBucket: "trac-nghiem-1b9ea.appspot.com",
+    messagingSenderId: "669870732779"
+    // apiKey: "AIzaSyDpcHqGHomwkl2oNAIEFAaDr58jqW40pJg",
+    // authDomain: "push-example-921a8.firebaseapp.com",
+    // databaseURL: "https://push-example-921a8.firebaseio.com",
+    // storageBucket: "push-example-921a8.appspot.com",
+    // messagingSenderId: "415083462802"
 };
 
 const routes: Routes = [

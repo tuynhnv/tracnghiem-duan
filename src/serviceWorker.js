@@ -1,19 +1,17 @@
 'use strict';
 
 //Cache polyfil to support cacheAPI in all browsers
-importScripts('./cache-polyfill.js');
+//importScripts('./cache-polyfill.js');
 
 var cacheName = 'cache-tracnghiem';
 
 //Files to save in cache
 var files = [
   './',
-    './app/quiz/question.js',
-    './app/quiz/answer.js',
     './app/app.component.css',
     './app/app.component.html',
-    './app/app.component.js',
-    './app/main.js',
+    './app/app.component.ts',
+    
     './index.html',
     './index.html?utm=homescreen', //SW treats query string as new page
     './styles.css',

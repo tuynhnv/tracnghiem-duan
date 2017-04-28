@@ -8,16 +8,17 @@ var cacheName = 'cache-tracnghiem';
 //Files to save in cache
 var files = [
   './',
-  './app/app.component.css',
-  './app/app.component.html',
-  './app/app.component.ts',
-  './app/app.module.ts',
-  './app/login-page/login-page.component.css',
-  './app/login-page/login-page.component.html',
-  './app/login-page/login-page.component.ts',
+    // './app/app.component.css',
+    // './app/app.component.html',
+    // './app/app.component.ts',
+    // 'src/app/app/component.ts',
+    'src/app/app.module.ts',
+     'src/app/quiz-page/quiz-page.component.ts',
+    
     './index.html',
     './index.html?utm=homescreen', //SW treats query string as new page
-    'https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700', //caching 3rd party content
+    // './styles.css',
+    //'https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700', //caching 3rd party content
     './manifest.json'
 
   
