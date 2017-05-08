@@ -17,36 +17,51 @@
             
         </div>
     
-        <div class="row" *ngIf="mode=='quiz'|| mode=='review'|| mode=='lambaithi'">
-          <div class="col-md-4" *ngFor="let dethi of dethi | async">
+        <div class="row" *ngIf="mode=='quiz'|| mode=='lambaithi'">
+          <div  *ngFor="let dethi of dethi | async">
             <h3 class="text-primary">Đề thi {{dethi.name}}</h3>
+            <table style="width: 30%" class="table table-responsive">
+            <thead>
+            <tr>
+                <th>Tổng số câu hỏi</th>
+                <th>{{dethi.totalquestion}}</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th>Thời gian làm bài</th>
+                <th><button>{{timerService.displayTime}}</button></th>
+            </tr>
+            </tbody>
+            </table>
+            <!--
             <h4>Tổng số câu hỏi: {{dethi.totalquestion}}</h4>
-            <h4>Thời gian:  <button >  {{timerService.displayTime}}</button> </h4>         
-            <div *ngIf="mode=='quiz'"><a  class="btn btn-primary" (click)='lambaithi()'>Làm bài thi</a></div>
+            <h4>Thời gian làm bài:  <button >  {{timerService.displayTime}}</button> </h4>         -->
+            <div *ngIf="mode=='quiz'"><a  class="btn btn-primary" (click)='lambaithi()'>Bắt đầu thi</a></div>
           </div>
         </div>
         <div *ngIf="mode=='lambaithi'" class="row">
-                    <!--<form class="form-quiz" (submit)="nopbai()">-->
-                        <div class="panel panel-primary" *ngFor="let question of questiones | paginate: {itemsPerPage: 1, currentPage:page}; let i=index ">
+
+                        <div class="panel panel-primary" *ngFor="let question of questiones ; let i=index ">
                                 <div class="panel-heading">
-                                    <h4> Câu hỏi {{question.index + 1}}:  {{question.name}}</h4>
+                                    <h4 > Câu hỏi {{question.index + 1}}: <h4 [MathJax] = "question.name"></h4></h4>
                                 </div>
                                 <div class="multiple_question">
-                                    <label class="" >
-                                        <input type="radio" name="question.name" value="question.A"  (click)="question.userAnswer=question.A" (click)="question.isAnswer=true" (click)="question.isAnswered='A'"/> A. {{question.A}}
+                                    <label class="" [MathJax] = "question.A" >
+                                        <input type="radio" name="question.name" value="question.A"  (click)="question.userAnswer=question.A" (click)="question.isAnswer=true" (click)="question.isAnswered='A'" /> 
                                     </label><br>
-                                    <label class="" >
-                                        <input type="radio" name="question.name" value="question.B"  (click)="question.userAnswer=question.B" (click)="question.isAnswer=true" (click)="question.isAnswered='B'"/> B. {{question.B}}
+                                    <label class="" [MathJax] = "question.B">
+                                        <input type="radio" name="question.name" value="question.B"  (click)="question.userAnswer=question.B" (click)="question.isAnswer=true" (click)="question.isAnswered='B'" />
                                     </label><br>
-                                    <label class="" >
-                                        <input type="radio" name="question.name" value="question.C"  (click)="question.userAnswer=question.C" (click)="question.isAnswer=true" (click)="question.isAnswered='C'"/> C. {{question.C}}
+                                    <label class="" [MathJax] = "question.C">
+                                        <input type="radio" name="question.name" value="question.C"  (click)="question.userAnswer=question.C" (click)="question.isAnswer=true" (click)="question.isAnswered='C'" />
                                     </label><br>
-                                    <label class="" >
-                                        <input type="radio" name="question.name" value="question.D"  (click)="question.userAnswer=question.D" (click)="question.isAnswer=true" (click)="question.isAnswered='D'"/> D. {{question.D}}
+                                    <label class="" [MathJax] = "question.D">
+                                        <input type="radio" name="question.name" value="question.D"  (click)="question.userAnswer=question.D" (click)="question.isAnswer=true" (click)="question.isAnswered='D'" />
                                     </label><br>
                                 </div>
   
-                                <pagination-controls (pageChange)="page = $event"
+                                <!--<pagination-controls (pageChange)="page = $event"
                                         directionLinks="true"
                                         autoHide="true"
                                         previousLabel="Câu trước"
@@ -54,27 +69,43 @@
                                         screenReaderPaginationLabel="Pagination"
                                         screenReaderPageLabel="page"
                                         screenReaderCurrentLabel="You're on page">
-                                </pagination-controls> 
-                                <!--<div  class="{{ question.isAnswer == true ? 'answered': 'not-answered' }}">{{i}}. {{question.option}}</div>-->
+                                </pagination-controls> | paginate: {itemsPerPage: 1, currentPage:page}-->
                                                                
                         </div>
-                        <!--<div class="text-sm-center">
-                                    <button class="btn btn-default"  (click)="goTo(0);">First</button>
-                                    <button class="btn btn-default"  (click)="goTo(pager.index - 1);">Prev</button>
-                                    <button class="btn btn-default" (click)="goTo(pager.index + 1);">Next</button>
-                                    <button class="btn btn-default"  (click)="goTo(pager.count - 1);">Last</button>
-                        </div>  -->
-                        <!--<p>
-                            <!--<input class="btn btn-primary" type="submit" value= "Nộp bài">-->
-                            
-                            <!--<button class="btn btn-primary" (click)="xemlai()">Xem lại</button>-->
-                        <!--</p>-->
-                   <!--</form>-->
-                   <button class="btn btn-primary" (click)="nopbai()">Nộp bài</button>
-                   <button class="btn btn-primary" (click)="xemlai()">Xem lại</button>
+                        
+                   
+                   <button class="btn btn-primary" (click)="xemlai()">Kết thúc làm bài</button>
                
       </div>
-      <div *ngIf="mode=='review'">
+      <div *ngIf="mode=='review'" >
+        <div  *ngFor="let dethi of dethi | async">
+            <h3 class="text-primary">Đề thi {{dethi.name}}</h3>
+            <table style="width: 30%" class="table table-responsive">
+            <thead>
+            <tr>
+                <th>Tổng số câu hỏi</th>
+                <th>{{dethi.totalquestion}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Thời gian làm bài</th>
+                <th><button>{{timerService.displayTime}}</button></th>
+            </tr>
+            <tr>
+                <th>Số câu đã trả lời </th>
+                <th>{{answerCount}}</th>
+            </tr>         
+            <tr>
+                <th>Số câu chưa trả lời</th>
+                <th>{{dethi.totalquestion-answerCount}}</th>
+            </tr>
+            </tbody>
+            </table>
+        <!--<h4>Số câu đã trả lời: {{answerCount}}</h4>
+        <h4>Số câu chưa trả lời: {{dethi.totalquestion-answerCount}}</h4>-->
+        </div>
+        
         <div class="panel panel-primary" >
                  <div class="panel-heading">
                     <h4> Bảng trả lời </h4>
@@ -83,8 +114,9 @@
                     <div class="{{ question.isAnswer == true ? 'answered': 'not-answered' }}"><span>{{index + 1}}. {{question.isAnswered}}</span>
                     </div>
                 </div>                   
-            </div>
-            <button class="btn btn-primary" (click)="mode='lambaithi'">Quay lại</button>
+        </div>
+            <button class="btn btn-primary" (click)="mode='lambaithi'">Quay lại bài thi</button>
+            <button class="btn btn-primary" (click)="nopbai()">Nộp bài và kết thúc</button>
       </div>    
       <!--<div class="row" *ngIf="review">
             <div class="col-sm-4" *ngFor="let question of questions; let index = index;">
@@ -94,32 +126,48 @@
 
       <div *ngIf="mode=='result'" class="row">
           <h3 class="text-primary" *ngFor="let dethi of dethi | async">Kết quả đề thi {{dethi.name}}</h3>
-          <h4>Tổng số câu hỏi: {{questiones.length}}</h4>
+          <table style="width: 30%" class="table table-responsive">
+            <tbody>
+            <tr>
+                <th>Tổng số câu hỏi</th>
+                <th>{{questiones.length}}</th>
+            </tr>
+            <tr>
+                <th>Số câu trả lời đúng</th>
+                <th>{{correctCount}}</th>
+            </tr>
+            <tr>
+                <th>Bạn nhận được số điểm là</th>
+                <th>{{grade.mark}}</th>
+            </tr>                    
+            </tbody>
+            </table>
+          <!--<h4>Tổng số câu hỏi: {{questiones.length}}</h4>
           <h4>Số câu trả lời đúng: {{correctCount}}</h4>
-          <h4>Bạn nhận được số điểm là: {{grade.mark}}</h4>
+          <h4>Bạn nhận được số điểm là: {{grade.mark}}</h4>-->
 
-            <div class="panel panel-primary" *ngFor="let question of questiones | paginate: {itemsPerPage: 1, currentPage:page}; let i=index ">
+            <div class="panel panel-primary" *ngFor="let question of questiones ; let i=index ">
                                 <div class="panel-heading">
-                                    <h4> Câu hỏi {{question.index + 1}}:  {{question.name}}</h4>
+                                    <h4> Câu hỏi {{question.index + 1}}:  <h4 [MathJax] = "question.name"></h4></h4>
                                 </div>
                                 <div class="multiple_question">
                                     <label class="" >
-                                        <input type="radio" disabled="disabled" /> A. {{question.A}}
+                                        <input type="radio" disabled="disabled" /> A. <h4 [MathJax] = "question.A"></h4>
                                     </label><br>
                                     <label class="" >
-                                        <input type="radio" disabled="disabled"/> B. {{question.B}}
+                                        <input type="radio" disabled="disabled"/> B. <h4 [MathJax] = "question.B"></h4>
                                     </label><br>
                                     <label class="" >
-                                        <input type="radio" disabled="disabled"/> C. {{question.C}}
+                                        <input type="radio" disabled="disabled"/> C. <h4 [MathJax] = "question.C"></h4>
                                     </label><br>
                                     <label class="" >
-                                        <input type="radio" disabled="disabled"/> D. {{question.D}}
+                                        <input type="radio" disabled="disabled"/> D. <h4 [MathJax] = "question.D"></h4>
                                     </label><br>
                                 </div>
 
                                 <div class="alert {{ isCorrect(question) == 'Câu trả lời đúng'? 'alert-success': 'alert-danger'}}">{{isCorrect(question)}}.</div>
   
-                                <pagination-controls (pageChange)="page = $event"
+                                <!--<pagination-controls (pageChange)="page = $event"
                                         directionLinks="true"
                                         autoHide="true"
                                         previousLabel="Câu trước"
@@ -127,7 +175,7 @@
                                         screenReaderPaginationLabel="Pagination"
                                         screenReaderPageLabel="page"
                                         screenReaderCurrentLabel="You're on page">
-                                </pagination-controls> 
+                                </pagination-controls> | paginate: {itemsPerPage: 1, currentPage:page}-->
                                 <!--<div  class="{{ question.isAnswer == true ? 'answered': 'not-answered' }}">{{i}}. {{question.option}}</div>-->
                                                                
                         </div>

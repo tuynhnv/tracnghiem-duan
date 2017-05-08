@@ -1,23 +1,25 @@
 .answered {
-    background-color: paleturquoise;
+    background-color: green;
     width: 50px;
     height: 20px;
     margin: 10px;
     display: inline;
     padding-left: 10px;
+    border: 1px solid black;
 }
 .not-answered {
-    background-color: pink;
+    background-color: white;
     width: 50px;
     height: 20px;
     margin: 10px;
     display: inline;
     padding-left: 10px;
+    border: 1px solid black;
 }
 .table-answered {
     display: inline;
     
-    background-color: lightgrey;
+    /*background-color: lightgrey;*/
 }
 .multiple_question {
     padding-left: 20px;

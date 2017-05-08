@@ -17,7 +17,12 @@
                     
                     <div class="form-group">
                          <label for="csetitle">Nội dung câu hỏi</label>
-                         <textarea #name type="text" class="form-control" id="question" name="question" placeholder="Điền nội dung câu hỏi tại đây" cols="40" rows="5" style="resize:vertical;" required></textarea>
+                         <textarea #name type="text" class="form-control" id="question" name="question" placeholder="Điền nội dung câu hỏi tại đây" cols="40" rows="5" style="resize:vertical;" required
+                         ngDefaultControl
+        spellcheck="false"
+        class="editor"
+        [MathJax]="name.value"
+                ></textarea>
                     </div>
                     
                     <!--<textarea cols="10" id="editor1" name="editor1" rows="10" >&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;
@@ -34,8 +39,8 @@
 
                     <div class="result" #result>c {{ editorArea.value }}</div>
                     -->
-                    <!--<h1 class="math-element" id="equation" [mathJax]="equationTexString">
-</h1>-->
+                    <h1 class="math-element" id="equation" [MathJax]="name.value">
+</h1>
 
                     <div class="form-group">
                        <label for="title">Lựa chọn A:</label>

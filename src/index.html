@@ -13,6 +13,7 @@
   <link rel="manifest" href="./manifest.json">
   <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700">
+  <script src="https://cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>
   <!--<link rel="stylesheet" href="./css/styles.css">-->
 
    <!--Polyfill(s) for older browsers -->
@@ -27,46 +28,22 @@
       System.import('app').catch(function(err){ console.error(err); });
     </script>-->
     
-      <!--<script type="text/x-mathjax-config">
+      <script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
     </script>
     <script type="text/javascript" async
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
     </script>
     <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script> 
-    <script src="https://cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>         -->
+    <script src="https://cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>         
 
-    <!--<script type="text/javascript">
-  If serviceWorker supports, then register it.
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register('./serviceWorker.js', { scope: "./" }) //setting scope of sw
-    .then(function (registration) {
-      console.info('Service worker is registered!');
-    })
-    .catch(function (error) {
-      console.error('Service worker failed ', error);
-    });
-  }
-  
-  </script>-->
-
+    
 </head>
 <body>
-  <!--<textarea cols="10" id="editor1" name="editor1" rows="10" >&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/p&gt;
-	</textarea>
+ 
+  
 
-	<script>
-		CKEDITOR.replace( 'editor1', {
-			extraPlugins: 'mathjax',
-			mathJaxLib: 'http://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS_HTML',
-			height: 320
-		} );
-
-		if ( CKEDITOR.env.ie && CKEDITOR.env.version == 8 ) {
-			document.getElementById( 'ie8-warning' ).className = 'tip alert';
-		}
-	</script>
-  <h1>Outside Angular one half = $\frac 12$</h1>-->
+  <!--<h1>Outside Angular one half = $\frac 12$</h1>-->
   <app-root>
     Loading...
     <!--<img style="margin-left: 40vw; margin-top: 20vh;" src="https://progblog.io/img/logo-green.png">-->
@@ -80,7 +57,28 @@
         console.log('Service Worker registration failed: ', err);
       });
     }
-  </script>
+
+//     if ('serviceWorker' in navigator) { 
+//   navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+// 	// Registration was successful 
+// 	console.log('ServiceWorker registration successful with scope: ',    registration.scope);
+// 	registration.pushManager.subscribe({userVisibleOnly: true}).then(function(subscription){
+// 	isPushEnabled = true;  
+// 	console.log("subscription.subscriptionId: ", subscription.subscriptionId);
+// 	console.log("subscription.endpoint: ", subscription.endpoint);
+	
+// 	// TODO: Send the subscription subscription.endpoint
+// 	// to your server and save it to send a push message
+// 	// at a later date
+// 	return sendSubscriptionToServer(subscription);
+// 	});
+//   }).catch(function(err) {
+//     // registration failed :(
+//     console.log('ServiceWorker registration failed: ', err);
+//   });
+// }
+
+   </script>
   <!--<button class="js-push-button" >
   Enable Push Messages
   </button>-->

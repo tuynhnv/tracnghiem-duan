@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {CKEditorModule} from 'ng2-ckeditor';
+//import {CKEditorModule} from 'ng2-ckeditor';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { LoginPageComponent } from './login-page/login-page.component';
 import {RouterModule, Routes} from "@angular/router";
 import {AF} from "../providers/af";
 import {Timer} from "../providers/time";
-//import {MathJaxDirective} from "../providers/mathjax";
+import {MathJaxDirective} from "../providers/mathjax";
 import { HomePageComponent } from './home-page/home-page.component';
 import {FormsModule} from "@angular/forms";
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
@@ -21,17 +21,18 @@ import { GradeManagementComponent } from './grade-management/grade-management.co
 import { QuestionManagementComponent } from './question-management/question-management.component';
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyABFBp8LGhIwp3TkkT0xo7LqqgCMpWf2QY",
-    authDomain: "trac-nghiem-1b9ea.firebaseapp.com",
-    databaseURL: "https://trac-nghiem-1b9ea.firebaseio.com",
-    projectId: "trac-nghiem-1b9ea",
-    storageBucket: "trac-nghiem-1b9ea.appspot.com",
-    messagingSenderId: "669870732779"
-    // apiKey: "AIzaSyDpcHqGHomwkl2oNAIEFAaDr58jqW40pJg",
-    // authDomain: "push-example-921a8.firebaseapp.com",
-    // databaseURL: "https://push-example-921a8.firebaseio.com",
-    // storageBucket: "push-example-921a8.appspot.com",
-    // messagingSenderId: "415083462802"
+    // apiKey: "AIzaSyABFBp8LGhIwp3TkkT0xo7LqqgCMpWf2QY",
+    // authDomain: "trac-nghiem-1b9ea.firebaseapp.com",
+    // databaseURL: "https://trac-nghiem-1b9ea.firebaseio.com",
+    // projectId: "trac-nghiem-1b9ea",
+    // storageBucket: "trac-nghiem-1b9ea.appspot.com",
+    // messagingSenderId: "669870732779"
+    apiKey: "AIzaSyDpcHqGHomwkl2oNAIEFAaDr58jqW40pJg",
+    authDomain: "push-example-921a8.firebaseapp.com",
+    databaseURL: "https://push-example-921a8.firebaseio.com",
+    projectId: "push-example-921a8",
+    storageBucket: "push-example-921a8.appspot.com",
+    messagingSenderId: "415083462802"
 };
 
 const routes: Routes = [
@@ -51,14 +52,14 @@ const routes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
-    CKEditorModule,
+    //CKEditorModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes),
     FormsModule,
     Ng2PaginationModule,
     //ElementRef
   ],
-  declarations: [ AppComponent, LoginPageComponent, HomePageComponent, RegistrationPageComponent, QuizPageComponent, GradePageComponent, AddquestionPageComponent, UserManagementComponent, QuizManagementComponent, GradeManagementComponent, QuestionManagementComponent ],
+  declarations: [ AppComponent, LoginPageComponent, HomePageComponent, RegistrationPageComponent, QuizPageComponent, GradePageComponent, AddquestionPageComponent, UserManagementComponent, QuizManagementComponent, GradeManagementComponent, QuestionManagementComponent, MathJaxDirective ],
   bootstrap: [ AppComponent ],
   providers: [AF, Timer]
 })

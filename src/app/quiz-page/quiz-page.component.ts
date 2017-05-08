@@ -18,6 +18,8 @@ export class QuizPageComponent implements OnInit {
   public questions: FirebaseListObservable<any>;
   public timedethi: number;
   public correctCount: number;
+  public answerCount: number;
+  public NotanswerCount: number;
   public lambaithied = false;
   public namequiz: string;
   public selectquiz = false;
@@ -83,17 +85,8 @@ export class QuizPageComponent implements OnInit {
      this.lambaithied = false;
      this.result =false;
      this.mode='quiz';
-     //this.namequiz="";
      
-    //  console.log(this.timerService.displayTime);
-     // console.log(this.timedethi);
   }
-
-  // onSelect(i: number, userAnswer: string){
-  //     this.userAnswer[i]=userAnswer;
-  //     console.log(this.userAnswer[i]+ "   " + i);
-    
-  // }
 
   nopbai() {
     this.correctCount=0;
@@ -121,6 +114,13 @@ export class QuizPageComponent implements OnInit {
   }
 
   xemlai(){
+    this.answerCount=0;
+    var i=0;
+    this.questiones.forEach(q=>{
+      if(q.isAnswer!==false){
+        this.answerCount++;
+      }
+    })
     this.mode='review';
     this.lambaithied=false;
   }

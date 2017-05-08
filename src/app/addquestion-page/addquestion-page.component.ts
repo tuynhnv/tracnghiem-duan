@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {FirebaseListObservable} from "angularfire2";
 import {AF} from "../../providers/af";
-import {CKEditorModule} from 'ng2-ckeditor';
+//import {CKEditorModule} from 'ng2-ckeditor';
 //import CKEDITOR from 'CKEDITOR/PATH';
 import {MathJaxDirective} from "../../providers/mathjax";
-
+// declare var MathJax: {
+//   Hub: {
+//     Queue: (param: Object[]) => void;
+//   }
+// }
 
 @Component({
   selector: 'app-addquestion-page',
   templateUrl: './addquestion-page.component.html',
   styleUrls: ['./addquestion-page.component.css'],
-  
-  providers: [MathJaxDirective]
+  //directives: [MathJaxDirective]
 
 })
 export class AddquestionPageComponent implements OnInit {
@@ -20,7 +23,9 @@ export class AddquestionPageComponent implements OnInit {
   public alert= false;
   public content: string;
   public equationTexString: string = "$\frac 12$";
+  public testValue : string = 'test test $\\frac 12$';
   
+  @ViewChild('result') result : ElementRef;
 
   constructor(public afService: AF) {
       this.quizs=this.afService.quizs;
@@ -50,4 +55,8 @@ export class AddquestionPageComponent implements OnInit {
   reset(){
     this.alert= false;
   }
+
+  // updateResult () {
+  //     MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.result.nativeElement]);
+  //   }
 }

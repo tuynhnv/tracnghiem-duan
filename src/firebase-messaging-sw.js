@@ -25,4 +25,16 @@ messaging.setBackgroundMessageHandler(function(payload) {
       notificationOptions);
 });
 
+// {
+//   "notification": {
+//     "body": "Notification",
+//     "title" "Tile",
+//     "priority": "high"
+//   },
+//   "data":  {
+//     "id": 1
+//   },
+//   "to": "eyEQrZZiSMs:APA91bEk0I3xjnf6nXqcUGHSuyJ7Yyy8vWWW6JKXl53A7oGuk56WYOKfL6NDVFz8mTylT0hj8JHqfRzelka6D9yWOS7zJF38Q5LFm6VOfTbbcfl-YUX2qWEVFPmOV7_SINGrmCGNyi9X"
+// }
+
 
